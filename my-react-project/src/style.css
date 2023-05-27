@@ -20,6 +20,10 @@ footer img {
   height: 40px;
 }
 
+header img {
+  height: 50px;
+}
+
 header {
   background-color: #ccc;
   padding: 20px 0;
@@ -48,6 +52,7 @@ a {
 
 .y-navs {
   display: flex;
+  align-items: center;
 }
 
 .y-navs a:first-of-type {
