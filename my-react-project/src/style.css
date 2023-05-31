@@ -128,3 +128,17 @@ a {
   border-radius: 10px;
   justify-content: center;
 }
+
+.quiz-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.close-button {
+  padding: 10px 12px;
+  border-radius: 60%;
+  background-color: #046e76;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}

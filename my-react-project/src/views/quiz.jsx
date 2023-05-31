@@ -38,11 +38,14 @@ const Quiz = () => {
     console.log("hello")
   }
 
+  const handleClose = (e) => {
+    location.href = "/quiz"
+  }
+
   const handleClick = (e) => {
     const category = e.target.getAttribute('data-attribute')
     if(category === "HTML") {
       setQuiz(quizArray[0])
-      console.log(quizArray[0])
     } if (category === "JavaScript") {
       setQuiz(quizArray[1])
     } if (category === "SQL") {
@@ -79,7 +82,10 @@ const Quiz = () => {
     {quizSelected 
     ?
     <>
+    <div className='quiz-title'>
     <h2>Quiz</h2>
+    <button className='close-button' onClick={handleClose}> X </button>
+    </div>
     <div className='html-quiz'>
       {quizOptions.map((quiz, index) => (
         <div key={quiz.id}>

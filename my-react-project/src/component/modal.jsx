@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Modal = ({action, message}) => {
+const Modal = (action) => {
     return (
         <>
-        <div onClick={action}>{message}</div>
+        <div onClick={action}></div>
         </>
     )
 }
