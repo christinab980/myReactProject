@@ -1,23 +1,55 @@
 import React, { useEffect, useState } from 'react';
+import Modal from "../component/modal";
+
 
 const Quiz = () => {
+  const [quizArray, setQuizArray] = useState([]);
   const [quizOptions, setQuiz] = useState([]);
   const [correctAnswer, setCorrectAnswers] = useState([]);
+  const [isModal, setIsModal] = useState(false);
+  const [quizSelected, setQuizSelected] = useState(false);
 
   const apiKey = "w9Rvsy8CdKGevTtBTBwe0aGMiqhMO7sHiJx57y8Y";
   const tags = ['html', 'JavaScript', 'MySQL']
 
   useEffect(() => {
-    fetch( `https://quizapi.io/api/v1/questions?apiKey=${apiKey}&category=code&difficulty=Easy&limit=10&tags=HTML`)
-    .then(response => response.json())
-    .then(data => setQuiz(data))
+    let quizPromises = tags.map(tag => {
+      let category = tag === "MySQL" ? "sql" : "code&difficulty=Easy"
+      let url = `https://quizapi.io/api/v1/questions?apiKey=${apiKey}&${category}&limit=10&tags=${tag}`
+      
+     async function fetchData() {
+      const response = await fetch(url)
+      const data = await response.json()
+      return data
+      }
+      return fetchData()
+    })
 
+    async function getData() {
+    let quizResponse = await Promise.all(quizPromises)
+    setQuizArray(quizResponse)
+  }
+    getData()
   }, [])
 
-  console.log(quizOptions)
+  console.log(quizArray)
 
   function handleAnswer() {
     console.log("hello")
+  }
+
+  const handleClick = (e) => {
+    const category = e.target.getAttribute('data-attribute')
+    if(category === "HTML") {
+      setQuiz(quizArray[0])
+      console.log(quizArray[0])
+    } if (category === "JavaScript") {
+      setQuiz(quizArray[1])
+    } if (category === "SQL") {
+      setQuiz(quizArray[2])
+    }
+    setIsModal(!isModal)
+    setQuizSelected(true)
   }
 
   const theCorrectAnswer = quizOptions.map(quiz => {
@@ -26,9 +58,30 @@ const Quiz = () => {
 
   return (
     <div className='quiz-container'>
+      <div className='quiz-modals'>
+       {!isModal && <button className='modal-button' data-attribute="HTML" onClick={handleClick}> HTML Quiz </button>}
+        {!isModal && (
+         <Modal 
+        action={handleClick}
+      />)}
+       {!isModal && <button className='modal-button' data-attribute="JavaScript" onClick={handleClick}> JavaScript Quiz </button>}
+       {!isModal && (
+      <Modal 
+        action={handleClick}
+      />)}
+        {!isModal && <button className='modal-button' data-attribute="SQL" onClick={handleClick}> MySQL Quiz </button>}
+       {!isModal && (
+      <Modal 
+        action={handleClick}
+      />)}
+    </div>
+
+    {quizSelected 
+    ?
+    <>
     <h2>Quiz</h2>
     <div className='html-quiz'>
-    {quizOptions.map((quiz, index) => (
+      {quizOptions.map((quiz, index) => (
         <div key={quiz.id}>
           <div className='quiz-question'>{index + 1}. {quiz.question}</div>
           <div className='quiz-answers' onClick={handleAnswer}> 
@@ -40,8 +93,16 @@ const Quiz = () => {
         </div>
       ))} 
     </div>
+    </>
+    :
+    ""}
   </div>
   )
 };
 
 export default Quiz;
+
+
+
+// terinary statement
+// let result = condition ? resultIfTrue : resultIfFalse

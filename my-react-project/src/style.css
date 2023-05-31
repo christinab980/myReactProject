@@ -66,6 +66,21 @@ a {
 .y-navs a:not(:first-of-type) {
   margin: 0 0 0 16px;
 }
+/* modal stylings  */
+
+.modal-button {
+  padding: 30px;
+  background-color: #f2f9f9;
+  border: 1px solid #046e76;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.quiz-modals {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
 
 /* landing stylings  */
 
