@@ -34,6 +34,7 @@ footer img {
 }
 
 /* header stylings  */
+
 header img {
   height: 55px;
 }
@@ -44,6 +45,7 @@ header {
 }
 
 /* navigation stylings  */
+
 .y-wrap {
   margin: 0 auto;
   width: 90%;
@@ -68,7 +70,7 @@ a {
 }
 /* modal stylings  */
 
-.modal-button {
+.modal-button, .landing-button {
   padding: 30px;
   background-color: #f2f9f9;
   border: 1px solid #046e76;
@@ -88,8 +90,13 @@ a {
   display: flex;
 }
 
+.landing-options {
+  display: flex;
+  gap: 10px;
+}
+
 .landing-quiz-logo {
-  width: 50%;
+  height: 500px;
 }
 
 .landing-wrap {
@@ -146,8 +153,13 @@ a {
 
 
 @media (max-width: 768px) {
+  .landing-container {
+    flex-direction: column;
+  }
+
   .landing-quiz-logo {
-    width: 50%
+    display: flex;
+    justify-content: center;
   }
 
   .quiz-modals {
