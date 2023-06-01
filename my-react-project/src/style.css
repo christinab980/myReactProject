@@ -89,7 +89,7 @@ a {
 }
 
 .landing-quiz-logo {
-  width: 500px;
+  width: 50%;
 }
 
 .landing-wrap {
@@ -97,6 +97,7 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .landing-wrap p {
@@ -141,4 +142,21 @@ a {
   border: none;
   color: #fff;
   cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+  .landing-quiz-logo {
+    width: 50%
+  }
+
+  .quiz-modals {
+    flex-wrap: wrap;
+  }
+
+  .quiz-answers {
+    flex-wrap: wrap;
+    row-gap: 10px;
+    margin-top: 10px;
+  }
 }
