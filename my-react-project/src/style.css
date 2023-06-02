@@ -115,6 +115,7 @@ a {
 
 /* quiz stylings  */
 
+
 .quiz-container {
   display: flex;
   flex-direction: column;
@@ -130,7 +131,7 @@ a {
   row-gap: 10px;
 }
 
-.quiz-answer {
+.quiz-answers div {
   display: flex;
   cursor: pointer;
   background-color: #bed7d8;
@@ -138,6 +139,10 @@ a {
   margin: 10px;
   border-radius: 10px;
   justify-content: center;
+}
+
+.clicked {
+  background-color: crimson;
 }
 
 .quiz-title {

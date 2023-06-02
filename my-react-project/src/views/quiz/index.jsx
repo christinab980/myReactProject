@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Question from './subcomponents/question';
 
 const Quiz = () => {
   const [randomQuiz, setRandomQuiz] = useState([]);
@@ -19,6 +20,13 @@ const Quiz = () => {
     location.href = "/quiz"
   }
 
+  const getCorrectAnswer = choices => {
+    const keys = Object.keys(choices)
+    const correctAnswer = keys.find(key => choices[key] === "true")
+    return correctAnswer;
+
+  }
+
   return (
     <>
     <div className='quiz-container'>
@@ -28,15 +36,13 @@ const Quiz = () => {
     </div>
     <div className='quiz'>
       {randomQuiz.map((quiz, index) => (
-        <div key={quiz.id}>
-          <div className='quiz-question'>{index + 1}. {quiz.question}</div>
-          <div className='quiz-answers' > 
-            <div className='quiz-answer'>{quiz.answers.answer_a}</div>
-            <div className='quiz-answer'>{quiz.answers.answer_b}</div>
-            <div className='quiz-answer'>{quiz.answers.answer_c}</div>
-            <div className='quiz-answer'>{quiz.answers.answer_d}</div>
-          </div>
-        </div>
+            <Question  
+            answers={quiz.answers} 
+            correctAnswer={getCorrectAnswer(quiz.correct_answers)}
+            key={quiz.id}
+            questionNumber={index +1} 
+            question={quiz.question}
+            />
       ))} 
     </div>
     </div>
