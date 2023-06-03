@@ -4,6 +4,7 @@ import Question from './subcomponents/question';
 import { selectQuizData } from '../../features/quizSlice';
 
 const Quiz = () => {
+  const [score, setScore] = useState(0)
   const data = useSelector(selectQuizData)
 
   useEffect(() => {
@@ -21,6 +22,10 @@ const Quiz = () => {
     const correctAnswer = keys.find(key => choices[key] === "true")
     return correctAnswer;
   }
+
+  const handleFinalAnswers = () => {
+    console.log('hello')
+  } 
 
   return (
     <>
@@ -40,6 +45,7 @@ const Quiz = () => {
             />
       ))} 
     </div>
+    <button onClick={handleFinalAnswers}>Submit Answers</button>
     </div>
     </>
   )

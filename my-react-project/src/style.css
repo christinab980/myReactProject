@@ -142,7 +142,8 @@ a {
 }
 
 .quiz-answers div.clicked {
-  background-color:#046e76
+  background-color:#046e76;
+  color: #fff;
 }
 
 .quiz-title {
