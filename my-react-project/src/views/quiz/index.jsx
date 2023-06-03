@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Question from './subcomponents/question';
+import { selectQuizData } from '../../features/quizSlice';
 
 const Quiz = () => {
-  const [randomQuiz, setRandomQuiz] = useState([]);
+  const data = useSelector(selectQuizData)
 
-  const apiKey = "w9Rvsy8CdKGevTtBTBwe0aGMiqhMO7sHiJx57y8Y";
   useEffect(() => {
-    async function fetchRandomQuiz() {
-    
-      const response = await fetch(`https://quizapi.io/api/v1/questions?apiKey=${apiKey}&limit=10`)
-      const data = await response.json()
-      setRandomQuiz(data)
-    }
-    fetchRandomQuiz()
+    console.log(data)
+  },[data])
 
-  }, [])
+  const dispatch = useDispatch()
+
+
 
   const handleClose = (e) => {
     location.href = "/quiz"
@@ -35,7 +33,7 @@ const Quiz = () => {
       <button className='close-button' onClick={handleClose}> X </button>
     </div>
     <div className='quiz'>
-      {randomQuiz.map((quiz, index) => (
+      {data && data.map((quiz, index) => (
             <Question  
             answers={quiz.answers} 
             correctAnswer={getCorrectAnswer(quiz.correct_answers)}

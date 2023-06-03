@@ -141,8 +141,8 @@ a {
   justify-content: center;
 }
 
-.clicked {
-  background-color: crimson;
+.quiz-answers div.clicked {
+  background-color:#046e76
 }
 
 .quiz-title {
