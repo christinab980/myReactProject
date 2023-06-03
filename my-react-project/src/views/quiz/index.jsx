@@ -12,8 +12,6 @@ const Quiz = () => {
 
   const dispatch = useDispatch()
 
-
-
   const handleClose = (e) => {
     location.href = "/quiz"
   }
@@ -22,7 +20,6 @@ const Quiz = () => {
     const keys = Object.keys(choices)
     const correctAnswer = keys.find(key => choices[key] === "true")
     return correctAnswer;
-
   }
 
   return (

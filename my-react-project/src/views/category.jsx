@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import Modal from "../component/modal";
+import Question from './quiz/subcomponents/question';
 
 
 const Category = () => {
   const [quizArray, setQuizArray] = useState([]);
   const [quizOptions, setQuiz] = useState([]);
-  const [correctAnswer, setCorrectAnswers] = useState([]);
   const [isModal, setIsModal] = useState(false);
   const [quizSelected, setQuizSelected] = useState(false);
 
@@ -32,11 +32,6 @@ const Category = () => {
     getData()
   }, [])
 
-  console.log(quizArray)
-
-  function handleAnswer() {
-    console.log("hello")
-  }
 
   const handleClose = (e) => {
     location.href = "/category"
@@ -65,9 +60,11 @@ const Category = () => {
     setQuizSelected(true)
   }
 
-  const theCorrectAnswer = quizOptions.map(quiz => {
-    console.log(Object.keys(quiz.correct_answers))
-  })
+  const getCorrectAnswer = choices => {
+    const keys = Object.keys(choices)
+    const correctAnswer = keys.find(key => choices[key] === "true")
+    return correctAnswer;
+  }
 
   return (
     <div className='quiz-container'>
@@ -123,15 +120,13 @@ const Category = () => {
     </div>
     <div className='quiz'>
       {quizOptions.map((quiz, index) => (
-        <div key={quiz.id}>
-          <div className='quiz-question'>{index + 1}. {quiz.question}</div>
-          <div className='quiz-answers' onClick={handleAnswer}> 
-            <div className='quiz-answer'>{quiz.answers.answer_a}</div>
-            <div className='quiz-answer'>{quiz.answers.answer_b}</div>
-            <div className='quiz-answer'>{quiz.answers.answer_c}</div>
-            <div className='quiz-answer'>{quiz.answers.answer_d}</div>
-          </div>
-        </div>
+            <Question  
+            answers={quiz.answers} 
+            correctAnswer={getCorrectAnswer(quiz.correct_answers)}
+            key={quiz.id}
+            questionNumber={index +1} 
+            question={quiz.question}
+            />
       ))} 
     </div>
     </>
