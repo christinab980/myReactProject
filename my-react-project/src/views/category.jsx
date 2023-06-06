@@ -5,6 +5,7 @@ import Question from './quiz/subcomponents/question';
 
 const Category = () => {
   const [quizArray, setQuizArray] = useState([]);
+  const [score, setScore] = useState(0)
   const [quizOptions, setQuiz] = useState([]);
   const [isModal, setIsModal] = useState(false);
   const [quizSelected, setQuizSelected] = useState(false);
@@ -31,6 +32,10 @@ const Category = () => {
   }
     getData()
   }, [])
+
+  const handleFinalAnswers = () => {
+      alert(score)
+  } 
 
 
   const handleClose = (e) => {
@@ -126,9 +131,12 @@ const Category = () => {
             key={quiz.id}
             questionNumber={index +1} 
             question={quiz.question}
+            setScore={setScore}
+            score={score}
             />
       ))} 
     </div>
+    <button className="submit-answers-button" onClick={handleFinalAnswers}>Submit Answers</button>
     </>
     :
     ""}

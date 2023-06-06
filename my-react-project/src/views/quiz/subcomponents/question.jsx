@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
 
-const Question = ({ correctAnswer, questionNumber, question, answers }) => {
+const Question = ({ correctAnswer, questionNumber, question, answers, setScore, score}) => {
     const [_correctAnswer, setCorrectAnswers] = useState();
-    const [answer, setAnswers] = useState([]);
     const [isActive, setIsActive] = useState(false)
-    const [score, setScore] = useState(0)
 
     useEffect(() => {
        const re = /_(\D)_/gi;
@@ -19,9 +17,12 @@ const Question = ({ correctAnswer, questionNumber, question, answers }) => {
         if (clickedOption) {
           setIsActive(clickedOption)
         }
-        // if(clickedOption === _correctAnswer) {
-        //     alert("correct")
-        // } else alert("incorrect")
+        if(clickedOption === _correctAnswer) {
+            console.log("correct")
+            setScore(score + 1)
+        } else {
+          console.log('incorrect')
+        }
     }
   
     return (
