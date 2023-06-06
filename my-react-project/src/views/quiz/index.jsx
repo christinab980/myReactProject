@@ -37,7 +37,7 @@ const Quiz = () => {
   }
 
   const handleQuiz = () => {
-    location.href = "/quiz"
+    window.location.reload()
   }
 
   return (

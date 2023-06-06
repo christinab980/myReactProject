@@ -76,7 +76,7 @@ const Category = () => {
   }
   
   const handleRefresh = () => {
-    location.href = '/category'
+    window.location.reload()
   }
 
   const handleQuiz = () => {
