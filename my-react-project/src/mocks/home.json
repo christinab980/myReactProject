@@ -2,7 +2,7 @@
     {
         "href": "/",
         "id": 101,
-        "src": "./public/img/quizLite.png",
+        "src": "./public/quizLite.png",
         "name": "Home"
       }
 ]

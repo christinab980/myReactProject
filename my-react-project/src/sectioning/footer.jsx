@@ -5,7 +5,7 @@ const Footer = () => {
     <footer>
       <div className='y-wrap'>
       <a href="https://github.com/christinab980/myReactProject" target="_blank"> 
-      <img className='footer-icon' src="./public/img/github_icon.png" alt="gitHub icon" /> </a>
+      <img className='footer-icon' src="./public/github_icon.png" alt="gitHub icon" /> </a>
       </div>
     </footer>
   )
