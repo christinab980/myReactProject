@@ -9,6 +9,7 @@ const Category = () => {
   const [quizOptions, setQuiz] = useState([]);
   const [isModal, setIsModal] = useState(false);
   const [quizSelected, setQuizSelected] = useState(false);
+  const [showScore, setShowScore] = useState(false);
 
   const apiKey = "w9Rvsy8CdKGevTtBTBwe0aGMiqhMO7sHiJx57y8Y";
   const tags = ['html', 'JavaScript', 'MySQL', 'Wordpress', 'PHP', 'Docker', 'DevOps', 'BASH']
@@ -34,9 +35,8 @@ const Category = () => {
   }, [])
 
   const handleFinalAnswers = () => {
-      alert(score)
+      setShowScore(true)
   } 
-
 
   const handleClose = (e) => {
     location.href = "/category"
@@ -71,7 +71,33 @@ const Category = () => {
     return correctAnswer;
   }
 
+  const handleLanding = () => {
+    location.href = '/'
+  }
+  
+  const handleRefresh = () => {
+    location.href = '/category'
+  }
+
+  const handleQuiz = () => {
+    location.href = '/quiz'
+  }
+
   return (
+    <>
+    {showScore 
+    ? 
+      <div className='score-overlay'>
+        <div className='showScore-card'>
+          <div onClick={handleLanding}className='showScore-close-btn'> <p> x </p> </div>
+          <p> You scored {score} out of 10! </p>
+          <div className='showScore-buttons'>
+          <button onClick={handleRefresh} className='landing-button'>Pick a Category!</button>
+          <button onClick={handleQuiz} className='landing-button'>Take another Random Quiz</button>
+          </div>
+        </div>
+      </div>
+    : 
     <div className='quiz-container'>
       <div className='quiz-modals'>
        {!isModal && <button className='modal-button' data-attribute="HTML" onClick={handleClick}> HTML Quiz </button>}
@@ -116,32 +142,35 @@ const Category = () => {
       />)}
     </div>
 
-    {quizSelected 
-    ?
-    <>
-    <div className='quiz-title'>
-    <h2>Quiz</h2>
-    <button className='close-button' onClick={handleClose}> X </button>
-    </div>
-    <div className='quiz'>
-      {quizOptions.map((quiz, index) => (
-            <Question  
-            answers={quiz.answers} 
-            correctAnswer={getCorrectAnswer(quiz.correct_answers)}
-            key={quiz.id}
-            questionNumber={index +1} 
-            question={quiz.question}
-            setScore={setScore}
-            score={score}
-            />
-      ))} 
-    </div>
-    <button className="submit-answers-button" onClick={handleFinalAnswers}>Submit Answers</button>
-    </>
-    :
-    ""}
+      {quizSelected 
+      ?
+      <>
+      <div className='quiz-title'>
+      <h2>Quiz</h2>
+      <button className='close-button' onClick={handleClose}> X </button>
+      </div>
+      <div className='quiz'>
+        {quizOptions.map((quiz, index) => (
+              <Question  
+              answers={quiz.answers} 
+              correctAnswer={getCorrectAnswer(quiz.correct_answers)}
+              key={quiz.id}
+              questionNumber={index +1} 
+              question={quiz.question}
+              setScore={setScore}
+              score={score}
+              />
+        ))} 
+      </div>
+      <button className="submit-answers-button" onClick={handleFinalAnswers}>Submit Answers</button>
+      </>
+      :
+      ""}
   </div>
-  )
-};
+  }
+</>
+  )};
+
+
 
 export default Category;

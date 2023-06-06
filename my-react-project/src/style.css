@@ -220,7 +220,7 @@ a {
   cursor: pointer;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 760px) {
   .landing-container {
     flex-direction: column;
   }
@@ -232,5 +232,33 @@ a {
 
   .quiz-answers {
     margin-top: 10px;
+  }
+
+  .showScore-close-btn {
+    right: 200px; 
+  }
+}
+
+@media (min-width: 860px) {
+  .showScore-close-btn {
+    right: 270px; 
+  }
+}
+
+@media (max-width: 500px) {
+  .showScore-close-btn {
+    right: 70px; 
+  }
+}
+
+@media (min-width: 1000px) {
+  .showScore-close-btn {
+    right: 340px; 
+  }
+}
+
+@media (min-width: 1100px) {
+  .showScore-close-btn {
+    right: 370px; 
   }
 }
