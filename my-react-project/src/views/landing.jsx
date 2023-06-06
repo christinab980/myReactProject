@@ -12,7 +12,7 @@ const Landing = () => {
  
   return (
     <div className='landing-container'>
-      <img className='landing-quiz-logo' src="/quizLogo.png" alt="quiz-logo" />
+      <img className='landing-quiz-logo' src="./public/img/quizLogo.png" alt="quiz-logo" />
       <div className='landing-wrap'> 
         <h1>Welcome to QuizLite!</h1>
         <p> Test your knowledge on the latest programming languages including HTML, JavaScript, MySQL as well as quizes on Wordpress, PHP, Docker, and more! </p>
