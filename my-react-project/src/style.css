@@ -245,9 +245,17 @@ a {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 400px) {
   .showScore-close-btn {
-    right: 70px; 
+    right: 25px;
+    top: 120px 
+  }
+}
+
+@media(max-width: 465px) {
+  .showScore-close-btn {
+    right: 70px;
+    top: 100px;
   }
 }
 
