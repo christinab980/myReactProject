@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Question from './subcomponents/question';
 import { selectQuizData } from '../../features/quizSlice';
+import { useNavigate } from 'react-router-dom'
 
 const Quiz = () => {
   const [score, setScore] = useState(0)
   const [showScore, setShowScore] = useState(false)
   const data = useSelector(selectQuizData)
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     console.log(data)
@@ -15,7 +18,7 @@ const Quiz = () => {
   const dispatch = useDispatch()
 
   const handleClose = (e) => {
-    location.href = "/quiz"
+    navigate('/quiz')
   }
 
   const getCorrectAnswer = choices => {
@@ -29,15 +32,15 @@ const Quiz = () => {
   } 
 
   const handleClick = () => {
-    window.location.href = "/category"
+    navigate('/category')
   }
 
   const handleRefresh = () => {
-    window.location.reload()
+    navigate('/')
   }
 
   const handleQuiz = () => {
-    window.location.reload(true)
+    navigate('/quiz')
   }
 
   return (

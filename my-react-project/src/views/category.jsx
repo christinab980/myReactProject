@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Modal from "../component/modal";
 import Question from './quiz/subcomponents/question';
+import { useNavigate } from 'react-router-dom'
 
 
 const Category = () => {
@@ -11,6 +12,8 @@ const Category = () => {
   const [quizSelected, setQuizSelected] = useState(false);
   const [showScore, setShowScore] = useState(false);
 
+  const navigate = useNavigate()
+  
   const apiKey = "w9Rvsy8CdKGevTtBTBwe0aGMiqhMO7sHiJx57y8Y";
   const tags = ['html', 'JavaScript', 'MySQL', 'Wordpress', 'PHP', 'Docker', 'DevOps', 'BASH']
 
@@ -39,7 +42,7 @@ const Category = () => {
   } 
 
   const handleClose = (e) => {
-    location.href = "/category"
+    navigate("/category")
   }
 
   const handleClick = (e) => {
@@ -72,15 +75,15 @@ const Category = () => {
   }
 
   const handleLanding = () => {
-    window.location.reload()
+    navigate('/')
   }
   
   const handleRefresh = () => {
-    window.location.reload(true)
+    navigate('/category')
   }
 
   const handleQuiz = () => {
-    location.href = '/quiz'
+    navigate('/quiz')
   }
 
   return (
