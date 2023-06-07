@@ -1,13 +1,16 @@
 import React from 'react';
+// import navs from '../mocks/navs.json'
+import { useNavigate } from 'react-redux'
 
 const Landing = () => {
+  const navigate = useNavigate()
 
   const handleClick = () => {
-    window.location.href = "/category"
+    navigate("/category")
   }
 
   const handleQuiz = () => {
-    window.location.href = '/quiz'
+    navigate("/quiz")
   }
  
   return (

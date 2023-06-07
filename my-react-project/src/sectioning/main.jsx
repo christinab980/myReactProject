@@ -10,7 +10,6 @@ const Main = () => {
         <Route path="/" element={<Landing />} />
         <Route path="/quiz" element={<Quiz />} />
         <Route path="*" element={<Error />} />
-
       </Routes>
     </main>
   )
