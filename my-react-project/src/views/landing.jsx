@@ -1,6 +1,6 @@
 import React from 'react';
 // import navs from '../mocks/navs.json'
-import { useNavigate } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 const Landing = () => {
   const navigate = useNavigate()
