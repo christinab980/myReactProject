@@ -18,7 +18,7 @@ const Quiz = () => {
   const dispatch = useDispatch()
 
   const handleClose = () => {
-    navigate('/quiz')
+    navigate('/')
   }
 
   const getCorrectAnswer = choices => {
