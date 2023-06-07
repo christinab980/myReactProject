@@ -7,7 +7,7 @@ const Landing = () => {
   }
 
   const handleQuiz = () => {
-    window.location.reload()
+    location.href = '/quiz'
   }
  
   return (
