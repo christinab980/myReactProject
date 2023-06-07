@@ -43,6 +43,7 @@ const Category = () => {
 
   const handleClose = () => {
     setIsModal(!isModal)
+    setQuizSelected(false)
   }
 
   const handleClick = (e) => {
@@ -79,7 +80,8 @@ const Category = () => {
   }
   
   const handleRefresh = () => {
-    navigate("")
+    setIsModal(!isModal)
+    setQuizSelected(false)
   }
 
   const handleQuiz = () => {
