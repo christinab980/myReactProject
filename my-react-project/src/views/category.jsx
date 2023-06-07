@@ -42,7 +42,7 @@ const Category = () => {
   } 
 
   const handleClose = () => {
-    navigate("/category")
+    setIsModal(!isModal)
   }
 
   const handleClick = (e) => {
@@ -79,7 +79,7 @@ const Category = () => {
   }
   
   const handleRefresh = () => {
-    window.location.reload()
+    navigate("")
   }
 
   const handleQuiz = () => {
