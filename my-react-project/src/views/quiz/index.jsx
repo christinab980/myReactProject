@@ -17,7 +17,7 @@ const Quiz = () => {
 
   const dispatch = useDispatch()
 
-  const handleClose = (e) => {
+  const handleClose = () => {
     navigate('/quiz')
   }
 
@@ -40,7 +40,7 @@ const Quiz = () => {
   }
 
   const handleQuiz = () => {
-    navigate('/quiz')
+    setShowScore(false)
   }
 
   return (
