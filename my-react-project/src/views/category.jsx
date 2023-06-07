@@ -79,7 +79,7 @@ const Category = () => {
   }
   
   const handleRefresh = () => {
-    window.location.reload(true)
+    window.location.reload()
   }
 
   const handleQuiz = () => {
