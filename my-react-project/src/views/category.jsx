@@ -80,8 +80,7 @@ const Category = () => {
   }
   
   const handleRefresh = () => {
-    setIsModal(!isModal)
-    setQuizSelected(false)
+    setShowScore(false)
   }
 
   const handleQuiz = () => {
