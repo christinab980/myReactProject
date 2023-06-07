@@ -41,7 +41,7 @@ const Category = () => {
       setShowScore(true)
   } 
 
-  const handleClose = (e) => {
+  const handleClose = () => {
     navigate("/category")
   }
 
@@ -75,15 +75,15 @@ const Category = () => {
   }
 
   const handleLanding = () => {
-    navigate('/')
+    navigate("/")
   }
   
   const handleRefresh = () => {
-    navigate('/category')
+    window.location.reload(true)
   }
 
   const handleQuiz = () => {
-    navigate('/quiz')
+    navigate("/quiz")
   }
 
   return (
