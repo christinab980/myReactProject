@@ -29,15 +29,15 @@ const Quiz = () => {
   } 
 
   const handleClick = () => {
-    location.href = "/category"
+    window.location.href = "/category"
   }
 
   const handleRefresh = () => {
-    location.href = "/"
+    window.location.reload()
   }
 
   const handleQuiz = () => {
-    window.location.reload()
+    window.location.reload(true)
   }
 
   return (

@@ -3,11 +3,11 @@ import React from 'react';
 const Landing = () => {
 
   const handleClick = () => {
-    location.href = "/category"
+    window.location.href = "/category"
   }
 
   const handleQuiz = () => {
-    location.href = '/quiz'
+    window.location.href = '/quiz'
   }
  
   return (

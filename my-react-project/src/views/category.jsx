@@ -72,11 +72,11 @@ const Category = () => {
   }
 
   const handleLanding = () => {
-    location.href = '/'
+    window.location.reload()
   }
   
   const handleRefresh = () => {
-    window.location.reload()
+    window.location.reload(true)
   }
 
   const handleQuiz = () => {
