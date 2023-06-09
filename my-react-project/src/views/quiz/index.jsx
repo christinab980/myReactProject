@@ -57,7 +57,7 @@ const Quiz = () => {
           <button onClick={handleClick} className='landing-button'>Pick a Category!</button>
           <button onClick={handleQuiz} className='landing-button'>Take another Random Quiz</button>
           </div>
-          <button onClick={handleWrongAnswers} className='showScore-button'> What did I get wrong? </button>
+          <button onClick={handleWrongAnswers} className='showScore-button'> Review </button>
         </div>
       </div>
 

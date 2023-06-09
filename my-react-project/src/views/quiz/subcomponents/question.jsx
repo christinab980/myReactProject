@@ -29,7 +29,8 @@ const Question = ({ id, correctAnswer, questionNumber, question, answers, setSco
         if(clickedOption === _correctAnswer) {
             setScore(score + 1)
         } else {
-           dispatch(cacheIncorrectAnswers(id))
+          
+          dispatch(cacheIncorrectAnswers(id))
           }
     }
   
