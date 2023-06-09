@@ -13,6 +13,7 @@
     "vite": "^4.3.9"
   },
   "dependencies": {
+    "react-collapsed": "^4.0.2",
     "redux": "^4.2.1"
   }
 }

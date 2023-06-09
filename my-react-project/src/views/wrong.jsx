@@ -59,10 +59,10 @@ const Wrong = () => {
               <div className='score-overlay'>
               <div className='showScore-card'>
                 <div onClick={handleRefresh}className='showScore-close-btn'> <p> x </p> </div>
-                <p> You scored {score} out of 10! </p>
+                <p> You scored {score}! </p>
                 <div className='showScore-buttons'>
                 <button onClick={handleClick} className='landing-button'>Pick a Category!</button>
-                <button onClick={handleQuiz} className='landing-button'>Take another Random Quiz</button>
+                <button onClick={handleQuiz} className='landing-button'> Random Quiz</button>
                 </div>
                 <button onClick={handleRefresh} className='showScore-button'> Home </button>
               </div>
