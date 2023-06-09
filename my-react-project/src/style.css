@@ -122,12 +122,14 @@ a {
 
 .quiz-question {
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .quiz-answers{
   display: flex;
+  flex-direction: column;
+  width: 400px;
   flex-wrap: wrap;
-  row-gap: 10px;
 }
 
 .quiz-answers div {
@@ -209,6 +211,18 @@ a {
   margin-top: 30px;
 }
 
+.showScore-button {
+  margin: 10px;
+  background-color: #f2f9f9;
+  padding: 15px;
+  border: none;
+  border-radius: 20px;
+  font-size: 1rem;
+  color: #046e76;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
 .showScore-close-btn {
   position: absolute;
   top: 140px;
@@ -245,17 +259,17 @@ a {
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   .showScore-close-btn {
-    right: 25px;
+    right: 90px;
     top: 120px 
   }
 }
 
-@media(max-width: 465px) {
+@media(max-width: 600px) {
   .showScore-close-btn {
-    right: 70px;
-    top: 100px;
+    right: 200px;
+    top: 120px;
   }
 }
 
@@ -269,4 +283,19 @@ a {
   .showScore-close-btn {
     right: 370px; 
   }
+}
+
+/* wrong view */
+
+.wrong-card {
+display: flex;
+flex-direction: column;
+justify-content: center;
+border-radius: 10px;
+width: 500px;
+height: 500px;
+padding: 100px;
+background-color: #046e76;
+color: #fff;
+text-align: center;
 }

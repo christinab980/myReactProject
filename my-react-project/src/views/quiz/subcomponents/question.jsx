@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { cacheIncorrectAnswers } from "../../../features/incorrectAnswerSlice";
 
-const Question = ({ correctAnswer, questionNumber, question, answers, setScore, score}) => {
+const Question = ({ id, correctAnswer, questionNumber, question, answers, setScore, score, incorrectAnswers, setIncorrectAnswers}) => {
     const [_correctAnswer, setCorrectAnswers] = useState();
     const [isActive, setIsActive] = useState(false)
     const [numberOfAnswers, setNumberOfAnswers] = useState()
+
+    const dispatch = useDispatch();
 
     useEffect(() => {
       const re = /_(\D)_/gi;
@@ -23,11 +27,10 @@ const Question = ({ correctAnswer, questionNumber, question, answers, setScore, 
           setIsActive(clickedOption)
         }
         if(clickedOption === _correctAnswer) {
-            console.log("correct")
             setScore(score + 1)
         } else {
-          console.log('incorrect')
-        }
+           dispatch(cacheIncorrectAnswers(id))
+          }
     }
   
     return (

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Question from './subcomponents/question';
 import { selectQuizData } from '../../features/quizSlice';
 import { useNavigate } from 'react-router-dom'
+
 
 const Quiz = () => {
   const [score, setScore] = useState(0)
@@ -14,8 +15,6 @@ const Quiz = () => {
   useEffect(() => {
     console.log(data)
   },[data])
-
-  const dispatch = useDispatch()
 
   const handleClose = () => {
     navigate('/')
@@ -43,6 +42,10 @@ const Quiz = () => {
     setShowScore(false)
   }
 
+  const handleWrongAnswers = () => {
+    navigate("/wrong")
+  }
+
   return (
     <>
     {showScore ? (
@@ -54,6 +57,7 @@ const Quiz = () => {
           <button onClick={handleClick} className='landing-button'>Pick a Category!</button>
           <button onClick={handleQuiz} className='landing-button'>Take another Random Quiz</button>
           </div>
+          <button onClick={handleWrongAnswers} className='showScore-button'> What did I get wrong? </button>
         </div>
       </div>
 
@@ -74,6 +78,7 @@ const Quiz = () => {
             question={quiz.question}
             setScore={setScore}
             score={score}
+            id={quiz.id}
             />
       ))} 
     </div>
